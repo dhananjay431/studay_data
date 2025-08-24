@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ramda/0.31.2/ramda.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.0.0-beta/Chart.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="myChart"></canvas>
+    <script>
+      function getRndInteger(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+      }
+      let n = 1000;
+      let arr = [];
+      let label = [];
+      while (true) {
+        debugger;
+        let rn = getRndInteger(-20, 20);
+        let ans = Number(Number(n * (1 + rn / 100)).toFixed(2));
+        // if (label.length == 0) {
+        //   label.push(rn);
+        // } else {
+        //   label.push(label.at(-1) + rn);
+        // }
+
+        console.log(`${n}*${rn}%=${ans}`);
+        n = ans;
+        arr.push(n);
+        if (n < 1) {
+          drawChart(arr);
+
+          break;
+        }
+      }
+
+      function drawChart(arr) {
+        var originalLineDraw = Chart.controllers.line.prototype.draw;
+        Chart.helpers.extend(Chart.controllers.line.prototype, {
+          draw: function () {
+            originalLineDraw.apply(this, arguments);
+
+            var chart = this.chart;
+            var ctx = chart.chart.ctx;
+
+            var index = chart.config.data.lineAtIndex;
+            if (index) {
+              var xaxis = chart.scales["x-axis-0"];
+              var yaxis = chart.scales["y-axis-0"];
+
+              ctx.save();
+              ctx.beginPath();
+              ctx.moveTo(xaxis.getPixelForValue(undefined, index), yaxis.top);
+              // ctx.strokeStyle = "#ff0000";
+              ctx.lineTo(
+                xaxis.getPixelForValue(undefined, index),
+                yaxis.bottom
+              );
+              ctx.stroke();
+              ctx.restore();
+            }
+          },
+        });
+
+        var config = {
+          type: "line",
+          data: {
+            labels: arr.map((_, i) => i + 1),
+            //  labels: label,
+            datasets: [
+              {
+                label: "My First dataset",
+                data: arr,
+                fill: false,
+              },
+            ],
+            lineAtIndex: 2,
+          },
+        };
+
+        var ctx = document.getElementById("myChart").getContext("2d");
+        new Chart(ctx, config);
+      }
+    </script>
+  </body>
+</html>

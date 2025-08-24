@@ -1,0 +1,3142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.31.3/ramda.min.js"
+      integrity="sha512-zJ3UuOCYC78i+G+5PXrgOOnC/BZ2CTlW6uOHnULd1oQPRSU1kxs/ckFlbRLWA3I/CPZjIyBtbh/z8/y0ZIPTNA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.0.0-beta/Chart.js"></script>
+    <title>Document</title>
+    <script>
+      var dt = [
+        {
+          symbol: "NETWEB",
+          lastPrice: 2306,
+          industry: "IT Enabled Services",
+        },
+        {
+          symbol: "ABFRL",
+          lastPrice: 81.16,
+          industry: "Speciality Retail",
+        },
+        {
+          symbol: "IDEA",
+          lastPrice: 7.02,
+          industry: "Telecom - Cellular & Fixed line services",
+        },
+        {
+          symbol: "GPIL",
+          lastPrice: 238.6,
+          industry: "Iron & Steel Products",
+        },
+        {
+          symbol: "ZENTEC",
+          lastPrice: 1492.6,
+          industry: "Aerospace & Defense",
+        },
+        {
+          symbol: "ZEEL",
+          lastPrice: 122.9,
+          industry: "TV Broadcasting & Software Production",
+        },
+        {
+          symbol: "POLYMED",
+          lastPrice: 2060.3,
+          industry: "Medical Equipment & Supplies",
+        },
+        {
+          symbol: "IPCALAB",
+          lastPrice: 1410,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "BHARTIHEXA",
+          lastPrice: 1865,
+          industry: "Telecom - Cellular & Fixed line services",
+        },
+        {
+          symbol: "UNOMINDA",
+          lastPrice: 1267.9,
+          industry: "Auto Components & Equipments",
+        },
+        {
+          symbol: "SWANENERGY",
+          lastPrice: 474.9,
+          industry: "Petrochemicals",
+        },
+        {
+          symbol: "POONAWALLA",
+          lastPrice: 464.25,
+          industry: "Non Banking Financial Company (NBFC)",
+        },
+        {
+          symbol: "SAREGAMA",
+          lastPrice: 494.8,
+          industry: "Media & Entertainment",
+        },
+        {
+          symbol: "ATUL",
+          lastPrice: 6506.5,
+          industry: "Specialty Chemicals",
+        },
+        {
+          symbol: "AIIL",
+          lastPrice: 2977.4,
+          industry: "Non Banking Financial Company (NBFC)",
+        },
+        {
+          symbol: "PTCIL",
+          lastPrice: 13700,
+          industry: "Other Industrial Products",
+        },
+        {
+          symbol: "USHAMART",
+          lastPrice: 377.2,
+          industry: "Iron & Steel Products",
+        },
+        {
+          symbol: "HOMEFIRST",
+          lastPrice: 1310,
+          industry: "Housing Finance Company",
+        },
+        {
+          symbol: "ASAHIINDIA",
+          lastPrice: 879.1,
+          industry: "Auto Components & Equipments",
+        },
+        {
+          symbol: "TECHNOE",
+          lastPrice: 1543,
+          industry: "Civil Construction",
+        },
+        {
+          symbol: "SJVN",
+          lastPrice: 99.4,
+          industry: "Power Generation",
+        },
+        {
+          symbol: "DIVISLAB",
+          lastPrice: 6154,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "OLECTRA",
+          lastPrice: 1560,
+          industry: "Passenger Cars & Utility Vehicles",
+        },
+        {
+          symbol: "FINPIPE",
+          lastPrice: 212,
+          industry: "Plastic Products - Industrial",
+        },
+        {
+          symbol: "SOLARINDS",
+          lastPrice: 14845,
+          industry: "Explosives",
+        },
+        {
+          symbol: "SAGILITY",
+          lastPrice: 46.24,
+          industry: "IT Enabled Services",
+        },
+        {
+          symbol: "LEMONTREE",
+          lastPrice: 168.9,
+          industry: "Hotels & Resorts",
+        },
+        {
+          symbol: "JBCHEPHARM",
+          lastPrice: 1754.4,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "MINDACORP",
+          lastPrice: 507.6,
+          industry: "Auto Components & Equipments",
+        },
+        {
+          symbol: "SONACOMS",
+          lastPrice: 449,
+          industry: "Auto Components & Equipments",
+        },
+        {
+          symbol: "INDUSTOWER",
+          lastPrice: 353,
+          industry: "Telecom - Infrastructure",
+        },
+        {
+          symbol: "PAYTM",
+          lastPrice: 1263.2,
+          industry: "Financial Technology (Fintech)",
+        },
+        {
+          symbol: "JMFINANCIL",
+          lastPrice: 192.4,
+          industry: "Holding Company",
+        },
+        {
+          symbol: "GVT&D",
+          lastPrice: 2766,
+          industry: "Heavy Electrical Equipment",
+        },
+        {
+          symbol: "JUBLPHARMA",
+          lastPrice: 1081.3,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "EMCURE",
+          lastPrice: 1490,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "PGEL",
+          lastPrice: 565.85,
+          industry: "Consumer Electronics",
+        },
+        {
+          symbol: "TATACOMM",
+          lastPrice: 1608,
+          industry: "Telecom - Cellular & Fixed line services",
+        },
+        {
+          symbol: "HFCL",
+          lastPrice: 73.67,
+          industry: "Telecom - Infrastructure",
+        },
+        {
+          symbol: "WOCKPHARMA",
+          lastPrice: 1479.1,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "EIHOTEL",
+          lastPrice: 407,
+          industry: "Hotels & Resorts",
+        },
+        {
+          symbol: "AUROPHARMA",
+          lastPrice: 1053,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "COFORGE",
+          lastPrice: 1747.9,
+          industry: "Computers - Software & Consulting",
+        },
+        {
+          symbol: "TORNTPHARM",
+          lastPrice: 3688,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "KAYNES",
+          lastPrice: 6212,
+          industry: "Industrial Products",
+        },
+        {
+          symbol: "CESC",
+          lastPrice: 166.5,
+          industry: "Integrated Power Utilities",
+        },
+        {
+          symbol: "CERA",
+          lastPrice: 6546.5,
+          industry: "Sanitary Ware",
+        },
+        {
+          symbol: "KEC",
+          lastPrice: 826.5,
+          industry: "Civil Construction",
+        },
+        {
+          symbol: "ERIS",
+          lastPrice: 1769.9,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "DIXON",
+          lastPrice: 16894,
+          industry: "Consumer Electronics",
+        },
+        {
+          symbol: "CUMMINSIND",
+          lastPrice: 3924.7,
+          industry: "Compressors Pumps & Diesel Engines",
+        },
+        {
+          symbol: "CONCORDBIO",
+          lastPrice: 1767.5,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "INOXWIND",
+          lastPrice: 144.06,
+          industry: "Heavy Electrical Equipment",
+        },
+        {
+          symbol: "ACMESOLAR",
+          lastPrice: 290.1,
+          industry: "Power Generation",
+        },
+        {
+          symbol: "APLLTD",
+          lastPrice: 977,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "JSL",
+          lastPrice: 779.5,
+          industry: "Iron & Steel",
+        },
+        {
+          symbol: "SUNDARMFIN",
+          lastPrice: 5264,
+          industry: "Non Banking Financial Company (NBFC)",
+        },
+        {
+          symbol: "SUZLON",
+          lastPrice: 58.68,
+          industry: "Heavy Electrical Equipment",
+        },
+        {
+          symbol: "AFCONS",
+          lastPrice: 431.6,
+          industry: "Civil Construction",
+        },
+        {
+          symbol: "AADHARHFC",
+          lastPrice: 522,
+          industry: "Housing Finance Company",
+        },
+        {
+          symbol: "SUPREMEIND",
+          lastPrice: 4616,
+          industry: "Plastic Products - Industrial",
+        },
+        {
+          symbol: "BLUESTARCO",
+          lastPrice: 1917.4,
+          industry: "Household Appliances",
+        },
+        {
+          symbol: "TTML",
+          lastPrice: 59.03,
+          industry: "Telecom - Cellular & Fixed line services",
+        },
+        {
+          symbol: "NAVINFLUOR",
+          lastPrice: 5030,
+          industry: "Specialty Chemicals",
+        },
+        {
+          symbol: "RCF",
+          lastPrice: 159,
+          industry: "Fertilizers",
+        },
+        {
+          symbol: "GMRAIRPORT",
+          lastPrice: 89.65,
+          industry: "Airport & Airport services",
+        },
+        {
+          symbol: "THERMAX",
+          lastPrice: 3262.6,
+          industry: "Heavy Electrical Equipment",
+        },
+        {
+          symbol: "GODREJCP",
+          lastPrice: 1257,
+          industry: "Personal Care",
+        },
+        {
+          symbol: "NUVAMA",
+          lastPrice: 6962.5,
+          industry: "Stockbroking & Allied",
+        },
+        {
+          symbol: "FLUOROCHEM",
+          lastPrice: 3415,
+          industry: "Specialty Chemicals",
+        },
+        {
+          symbol: "KIRLOSENG",
+          lastPrice: 954,
+          industry: "Compressors Pumps & Diesel Engines",
+        },
+        {
+          symbol: "M&M",
+          lastPrice: 3400.1,
+          industry: "Passenger Cars & Utility Vehicles",
+        },
+        {
+          symbol: "AAVAS",
+          lastPrice: 1649.1,
+          industry: "Housing Finance Company",
+        },
+        {
+          symbol: "KPRMILL",
+          lastPrice: 1028.1,
+          industry: "Other Textile Products",
+        },
+        {
+          symbol: "SUNDRMFAST",
+          lastPrice: 997,
+          industry: "Auto Components & Equipments",
+        },
+        {
+          symbol: "HBLENGINE",
+          lastPrice: 800.1,
+          industry: "Other Industrial Products",
+        },
+        {
+          symbol: "FIVESTAR",
+          lastPrice: 588,
+          industry: "Non Banking Financial Company (NBFC)",
+        },
+        {
+          symbol: "JBMA",
+          lastPrice: 637.6,
+          industry: "Auto Components & Equipments",
+        },
+        {
+          symbol: "M&MFIN",
+          lastPrice: 262.45,
+          industry: "Non Banking Financial Company (NBFC)",
+        },
+        {
+          symbol: "MARUTI",
+          lastPrice: 14370,
+          industry: "Passenger Cars & Utility Vehicles",
+        },
+        {
+          symbol: "IRCON",
+          lastPrice: 171.25,
+          industry: "Civil Construction",
+        },
+        {
+          symbol: "DEEPAKFERT",
+          lastPrice: 1529,
+          industry: "Commodity Chemicals",
+        },
+        {
+          symbol: "BLS",
+          lastPrice: 368.95,
+          industry: "Tour Travel Related Services",
+        },
+        {
+          symbol: "PVRINOX",
+          lastPrice: 1128.9,
+          industry: "Film Production Distribution & Exhibition",
+        },
+        {
+          symbol: "CLEAN",
+          lastPrice: 1155.3,
+          industry: "Specialty Chemicals",
+        },
+        {
+          symbol: "KFINTECH",
+          lastPrice: 1126.1,
+          industry: "Depositories Clearing Houses and Other Intermediaries",
+        },
+        {
+          symbol: "GLAND",
+          lastPrice: 1955,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "AFFLE",
+          lastPrice: 1947.1,
+          industry: "IT Enabled Services",
+        },
+        {
+          symbol: "HDFCAMC",
+          lastPrice: 5823,
+          industry: "Asset Management Company",
+        },
+        {
+          symbol: "STARHEALTH",
+          lastPrice: 442.4,
+          industry: "General Insurance",
+        },
+        {
+          symbol: "KALYANKJIL",
+          lastPrice: 513.45,
+          industry: "Gems Jewellery And Watches",
+        },
+        {
+          symbol: "EIDPARRY",
+          lastPrice: 1176,
+          industry: "Other Food Products",
+        },
+        {
+          symbol: "ASTRAZEN",
+          lastPrice: 8432,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "LTF",
+          lastPrice: 222.77,
+          industry: "Investment Company",
+        },
+        {
+          symbol: "POLYCAB",
+          lastPrice: 7116,
+          industry: "Cables - Electricals",
+        },
+        {
+          symbol: "LUPIN",
+          lastPrice: 1971,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "MCX",
+          lastPrice: 7960.5,
+          industry: "Exchange and Data Platform",
+        },
+        {
+          symbol: "NAM-INDIA",
+          lastPrice: 866,
+          industry: "Asset Management Company",
+        },
+        {
+          symbol: "PRESTIGE",
+          lastPrice: 1637.4,
+          industry: "Residential Commercial Projects",
+        },
+        {
+          symbol: "INDIAMART",
+          lastPrice: 2671,
+          industry: "Internet & Catalogue Retail",
+        },
+        {
+          symbol: "NEULANDLAB",
+          lastPrice: 13850,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "RRKABEL",
+          lastPrice: 1215,
+          industry: "Cables - Electricals",
+        },
+        {
+          symbol: "ZYDUSLIFE",
+          lastPrice: 989.75,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "INTELLECT",
+          lastPrice: 964.5,
+          industry: "Computers - Software & Consulting",
+        },
+        {
+          symbol: "JUBLINGREA",
+          lastPrice: 716.05,
+          industry: "Specialty Chemicals",
+        },
+        {
+          symbol: "SUMICHEM",
+          lastPrice: 595.6,
+          industry: "Pesticides & Agrochemicals",
+        },
+        {
+          symbol: "KPIL",
+          lastPrice: 1300,
+          industry: "Civil Construction",
+        },
+        {
+          symbol: "VMM",
+          lastPrice: 150.79,
+          industry: "Diversified Retail",
+        },
+        {
+          symbol: "CGPOWER",
+          lastPrice: 680,
+          industry: "Heavy Electrical Equipment",
+        },
+        {
+          symbol: "MANAPPURAM",
+          lastPrice: 266.3,
+          industry: "Non Banking Financial Company (NBFC)",
+        },
+        {
+          symbol: "TIMKEN",
+          lastPrice: 2990.2,
+          industry: "Abrasives & Bearings",
+        },
+        {
+          symbol: "METROPOLIS",
+          lastPrice: 2163,
+          industry: "Healthcare Service Provider",
+        },
+        {
+          symbol: "CDSL",
+          lastPrice: 1575,
+          industry: "Depositories Clearing Houses and Other Intermediaries",
+        },
+        {
+          symbol: "MANKIND",
+          lastPrice: 2609.1,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "REDINGTON",
+          lastPrice: 243.05,
+          industry: "Trading & Distributors",
+        },
+        {
+          symbol: "PPLPHARMA",
+          lastPrice: 192.7,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "NATCOPHARM",
+          lastPrice: 883.95,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "TVSMOTOR",
+          lastPrice: 3290.6,
+          industry: "2/3 Wheelers",
+        },
+        {
+          symbol: "HONAUT",
+          lastPrice: 38050,
+          industry: "Industrial Products",
+        },
+        {
+          symbol: "CAMS",
+          lastPrice: 3906,
+          industry: "Depositories Clearing Houses and Other Intermediaries",
+        },
+        {
+          symbol: "CHOLAFIN",
+          lastPrice: 1522.3,
+          industry: "Non Banking Financial Company (NBFC)",
+        },
+        {
+          symbol: "APOLLOTYRE",
+          lastPrice: 465.9,
+          industry: "Tyres & Rubber Products",
+        },
+        {
+          symbol: "BEL",
+          lastPrice: 375.15,
+          industry: "Aerospace & Defense",
+        },
+        {
+          symbol: "BIOCON",
+          lastPrice: 358.65,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "HONASA",
+          lastPrice: 300.75,
+          industry: "Personal Care",
+        },
+        {
+          symbol: "TITAGARH",
+          lastPrice: 857,
+          industry: "Railway Wagons",
+        },
+        {
+          symbol: "DELHIVERY",
+          lastPrice: 472.95,
+          industry: "Logistics Solution Provider",
+        },
+        {
+          symbol: "SCHNEIDER",
+          lastPrice: 862,
+          industry: "Heavy Electrical Equipment",
+        },
+        {
+          symbol: "SBFC",
+          lastPrice: 113.82,
+          industry: "Non Banking Financial Company (NBFC)",
+        },
+        {
+          symbol: "SYNGENE",
+          lastPrice: 669.15,
+          industry: "Healthcare Research Analytics & Technology",
+        },
+        {
+          symbol: "SRF",
+          lastPrice: 2918,
+          industry: "Specialty Chemicals",
+        },
+        {
+          symbol: "CEATLTD",
+          lastPrice: 3187.8,
+          industry: "Tyres & Rubber Products",
+        },
+        {
+          symbol: "BHARTIARTL",
+          lastPrice: 1933,
+          industry: "Telecom - Cellular & Fixed line services",
+        },
+        {
+          symbol: "DABUR",
+          lastPrice: 516.5,
+          industry: "Personal Care",
+        },
+        {
+          symbol: "PIIND",
+          lastPrice: 3876,
+          industry: "Pesticides & Agrochemicals",
+        },
+        {
+          symbol: "UPL",
+          lastPrice: 713.55,
+          industry: "Pesticides & Agrochemicals",
+        },
+        {
+          symbol: "APLAPOLLO",
+          lastPrice: 1650,
+          industry: "Iron & Steel Products",
+        },
+        {
+          symbol: "IGL",
+          lastPrice: 207,
+          industry: "LPG/CNG/PNG/LNG Supplier",
+        },
+        {
+          symbol: "HAL",
+          lastPrice: 4480,
+          industry: "Aerospace & Defense",
+        },
+        {
+          symbol: "ANANDRATHI",
+          lastPrice: 2815,
+          industry: "Financial Products Distributor",
+        },
+        {
+          symbol: "BSE",
+          lastPrice: 2334.9,
+          industry: "Exchange and Data Platform",
+        },
+        {
+          symbol: "FINCABLES",
+          lastPrice: 851.9,
+          industry: "Cables - Electricals",
+        },
+        {
+          symbol: "ASHOKLEY",
+          lastPrice: 131.15,
+          industry: "Commercial Vehicles",
+        },
+        {
+          symbol: "GLAXO",
+          lastPrice: 2783.4,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "KARURVYSYA",
+          lastPrice: 258.45,
+          industry: "Private Sector Bank",
+        },
+        {
+          symbol: "RBLBANK",
+          lastPrice: 254.4,
+          industry: "Private Sector Bank",
+        },
+        {
+          symbol: "HAVELLS",
+          lastPrice: 1555,
+          industry: "Consumer Electronics",
+        },
+        {
+          symbol: "ALKEM",
+          lastPrice: 5427,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "IREDA",
+          lastPrice: 147.4,
+          industry: "Financial Institution",
+        },
+        {
+          symbol: "AARTIIND",
+          lastPrice: 382.2,
+          industry: "Specialty Chemicals",
+        },
+        {
+          symbol: "INDGN",
+          lastPrice: 573.3,
+          industry: "Healthcare Research Analytics & Technology",
+        },
+        {
+          symbol: "TITAN",
+          lastPrice: 3618.9,
+          industry: "Gems Jewellery And Watches",
+        },
+        {
+          symbol: "BAJFINANCE",
+          lastPrice: 896.1,
+          industry: "Non Banking Financial Company (NBFC)",
+        },
+        {
+          symbol: "PERSISTENT",
+          lastPrice: 5350,
+          industry: "Computers - Software & Consulting",
+        },
+        {
+          symbol: "DMART",
+          lastPrice: 4694.3,
+          industry: "Diversified Retail",
+        },
+        {
+          symbol: "GRAVITA",
+          lastPrice: 1734.9,
+          industry: "Industrial Minerals",
+        },
+        {
+          symbol: "VGUARD",
+          lastPrice: 372.4,
+          industry: "Household Appliances",
+        },
+        {
+          symbol: "APOLLOHOSP",
+          lastPrice: 7930,
+          industry: "Hospital",
+        },
+        {
+          symbol: "PIDILITIND",
+          lastPrice: 3080,
+          industry: "Specialty Chemicals",
+        },
+        {
+          symbol: "ATGL",
+          lastPrice: 618.15,
+          industry: "LPG/CNG/PNG/LNG Supplier",
+        },
+        {
+          symbol: "ASTRAL",
+          lastPrice: 1421.7,
+          industry: "Plastic Products - Industrial",
+        },
+        {
+          symbol: "BAJAJHFL",
+          lastPrice: 113.04,
+          industry: "Housing Finance Company",
+        },
+        {
+          symbol: "BAJAJ-AUTO",
+          lastPrice: 8685,
+          industry: "2/3 Wheelers",
+        },
+        {
+          symbol: "PEL",
+          lastPrice: 1164.3,
+          industry: "Non Banking Financial Company (NBFC)",
+        },
+        {
+          symbol: "DATAPATTNS",
+          lastPrice: 2600,
+          industry: "Aerospace & Defense",
+        },
+        {
+          symbol: "DCMSHRIRAM",
+          lastPrice: 1263.5,
+          industry: "Diversified",
+        },
+        {
+          symbol: "GODREJPROP",
+          lastPrice: 2053.1,
+          industry: "Residential Commercial Projects",
+        },
+        {
+          symbol: "BEML",
+          lastPrice: 4028,
+          industry: "Construction Vehicles",
+        },
+        {
+          symbol: "SARDAEN",
+          lastPrice: 597.55,
+          industry: "Iron & Steel",
+        },
+        {
+          symbol: "SUNPHARMA",
+          lastPrice: 1639.5,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "CIPLA",
+          lastPrice: 1592,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "GLENMARK",
+          lastPrice: 1940,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "SWSOLAR",
+          lastPrice: 278.7,
+          industry: "Civil Construction",
+        },
+        {
+          symbol: "GODREJIND",
+          lastPrice: 1285,
+          industry: "Diversified",
+        },
+        {
+          symbol: "ESCORTS",
+          lastPrice: 3574,
+          industry: "Tractors",
+        },
+        {
+          symbol: "POWERGRID",
+          lastPrice: 283.8,
+          industry: "Power - Transmission",
+        },
+        {
+          symbol: "KEI",
+          lastPrice: 3950,
+          industry: "Cables - Electricals",
+        },
+        {
+          symbol: "SCI",
+          lastPrice: 216.3,
+          industry: "Shipping",
+        },
+        {
+          symbol: "SAILIFE",
+          lastPrice: 923.95,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "NETWORK18",
+          lastPrice: 56.2,
+          industry: "Media & Entertainment",
+        },
+        {
+          symbol: "TARIL",
+          lastPrice: 499.05,
+          industry: "Heavy Electrical Equipment",
+        },
+        {
+          symbol: "PHOENIXLTD",
+          lastPrice: 1574,
+          industry: "Residential Commercial Projects",
+        },
+        {
+          symbol: "IRCTC",
+          lastPrice: 724,
+          industry: "Tour Travel Related Services",
+        },
+        {
+          symbol: "SYRMA",
+          lastPrice: 744.2,
+          industry: "Industrial Products",
+        },
+        {
+          symbol: "LALPATHLAB",
+          lastPrice: 3380,
+          industry: "Healthcare Service Provider",
+        },
+        {
+          symbol: "ABSLAMC",
+          lastPrice: 884,
+          industry: "Asset Management Company",
+        },
+        {
+          symbol: "INOXINDIA",
+          lastPrice: 1145,
+          industry: "Other Industrial Products",
+        },
+        {
+          symbol: "DRREDDY",
+          lastPrice: 1275,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "VBL",
+          lastPrice: 516.55,
+          industry: "Other Beverages",
+        },
+        {
+          symbol: "FACT",
+          lastPrice: 1009.5,
+          industry: "Fertilizers",
+        },
+        {
+          symbol: "NTPCGREEN",
+          lastPrice: 103.35,
+          industry: "Power Generation",
+        },
+        {
+          symbol: "BDL",
+          lastPrice: 1517.5,
+          industry: "Aerospace & Defense",
+        },
+        {
+          symbol: "MUTHOOTFIN",
+          lastPrice: 2671.4,
+          industry: "Non Banking Financial Company (NBFC)",
+        },
+        {
+          symbol: "COROMANDEL",
+          lastPrice: 2425,
+          industry: "Fertilizers",
+        },
+        {
+          symbol: "CGCL",
+          lastPrice: 187.6,
+          industry: "Non Banking Financial Company (NBFC)",
+        },
+        {
+          symbol: "TRIDENT",
+          lastPrice: 28.58,
+          industry: "Other Textile Products",
+        },
+        {
+          symbol: "360ONE",
+          lastPrice: 1079.7,
+          industry: "Stockbroking & Allied",
+        },
+        {
+          symbol: "MASTEK",
+          lastPrice: 2491,
+          industry: "Computers - Software & Consulting",
+        },
+        {
+          symbol: "AKUMS",
+          lastPrice: 480.9,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "NYKAA",
+          lastPrice: 224.5,
+          industry: "E-Retail/ E-Commerce",
+        },
+        {
+          symbol: "RADICO",
+          lastPrice: 2889.1,
+          industry: "Breweries & Distilleries",
+        },
+        {
+          symbol: "VIJAYA",
+          lastPrice: 1020.3,
+          industry: "Healthcare Service Provider",
+        },
+        {
+          symbol: "BHEL",
+          lastPrice: 218.01,
+          industry: "Heavy Electrical Equipment",
+        },
+        {
+          symbol: "CYIENT",
+          lastPrice: 1231.2,
+          industry: "IT Enabled Services",
+        },
+        {
+          symbol: "TATACONSUM",
+          lastPrice: 1085.5,
+          industry: "Tea & Coffee",
+        },
+        {
+          symbol: "INDIGO",
+          lastPrice: 6083.5,
+          industry: "Airline",
+        },
+        {
+          symbol: "OBEROIRLTY",
+          lastPrice: 1655.5,
+          industry: "Residential Commercial Projects",
+        },
+        {
+          symbol: "PFC",
+          lastPrice: 399.2,
+          industry: "Financial Institution",
+        },
+        {
+          symbol: "TRITURBINE",
+          lastPrice: 534.05,
+          industry: "Heavy Electrical Equipment",
+        },
+        {
+          symbol: "DEEPAKNTR",
+          lastPrice: 1806,
+          industry: "Specialty Chemicals",
+        },
+        {
+          symbol: "CHAMBLFERT",
+          lastPrice: 561,
+          industry: "Fertilizers",
+        },
+        {
+          symbol: "GNFC",
+          lastPrice: 531,
+          industry: "Commodity Chemicals",
+        },
+        {
+          symbol: "MEDANTA",
+          lastPrice: 1385,
+          industry: "Hospital",
+        },
+        {
+          symbol: "COCHINSHIP",
+          lastPrice: 1702.1,
+          industry: "Ship Building & Allied Services",
+        },
+        {
+          symbol: "IRFC",
+          lastPrice: 125.05,
+          industry: "Financial Institution",
+        },
+        {
+          symbol: "LTTS",
+          lastPrice: 4276,
+          industry: "IT Enabled Services",
+        },
+        {
+          symbol: "LTIM",
+          lastPrice: 5218.5,
+          industry: "Computers - Software & Consulting",
+        },
+        {
+          symbol: "PATANJALI",
+          lastPrice: 1803,
+          industry: "Edible Oil",
+        },
+        {
+          symbol: "RKFORGE",
+          lastPrice: 575,
+          industry: "Auto Components & Equipments",
+        },
+        {
+          symbol: "BASF",
+          lastPrice: 4578,
+          industry: "Specialty Chemicals",
+        },
+        {
+          symbol: "SUNTV",
+          lastPrice: 574.5,
+          industry: "TV Broadcasting & Software Production",
+        },
+        {
+          symbol: "GMDCLTD",
+          lastPrice: 426.5,
+          industry: "Industrial Minerals",
+        },
+        {
+          symbol: "TEJASNET",
+          lastPrice: 618,
+          industry: "Telecom - Equipment & Accessories",
+        },
+        {
+          symbol: "BOSCHLTD",
+          lastPrice: 39345,
+          industry: "Auto Components & Equipments",
+        },
+        {
+          symbol: "TATACHEM",
+          lastPrice: 937,
+          industry: "Commodity Chemicals",
+        },
+        {
+          symbol: "POLICYBZR",
+          lastPrice: 1901.2,
+          industry: "Financial Technology (Fintech)",
+        },
+        {
+          symbol: "MGL",
+          lastPrice: 1325.5,
+          industry: "LPG/CNG/PNG/LNG Supplier",
+        },
+        {
+          symbol: "ADANIPOWER",
+          lastPrice: 594,
+          industry: "Integrated Power Utilities",
+        },
+        {
+          symbol: "PETRONET",
+          lastPrice: 277.15,
+          industry: "LPG/CNG/PNG/LNG Supplier",
+        },
+        {
+          symbol: "SKFINDIA",
+          lastPrice: 4492.1,
+          industry: "Abrasives & Bearings",
+        },
+        {
+          symbol: "MPHASIS",
+          lastPrice: 2843,
+          industry: "Computers - Software & Consulting",
+        },
+        {
+          symbol: "OIL",
+          lastPrice: 409.1,
+          industry: "Oil Exploration & Production",
+        },
+        {
+          symbol: "INDIANB",
+          lastPrice: 668,
+          industry: "Public Sector Bank",
+        },
+        {
+          symbol: "NIVABUPA",
+          lastPrice: 85.15,
+          industry: "General Insurance",
+        },
+        {
+          symbol: "CAMPUS",
+          lastPrice: 263.9,
+          industry: "Footwear",
+        },
+        {
+          symbol: "KAJARIACER",
+          lastPrice: 1271.1,
+          industry: "Ceramics",
+        },
+        {
+          symbol: "BANKINDIA",
+          lastPrice: 115.45,
+          industry: "Public Sector Bank",
+        },
+        {
+          symbol: "ARE&M",
+          lastPrice: 986,
+          industry: "Auto Components & Equipments",
+        },
+        {
+          symbol: "GSPL",
+          lastPrice: 303.75,
+          industry: "Gas Transmission/Marketing",
+        },
+        {
+          symbol: "TATATECH",
+          lastPrice: 683.6,
+          industry: "IT Enabled Services",
+        },
+        {
+          symbol: "VEDL",
+          lastPrice: 444.95,
+          industry: "Diversified Metals",
+        },
+        {
+          symbol: "BALRAMCHIN",
+          lastPrice: 581.9,
+          industry: "Sugar",
+        },
+        {
+          symbol: "ALOKINDS",
+          lastPrice: 18.21,
+          industry: "Other Textile Products",
+        },
+        {
+          symbol: "TRIVENI",
+          lastPrice: 340.05,
+          industry: "Sugar",
+        },
+        {
+          symbol: "UNITDSPR",
+          lastPrice: 1331,
+          industry: "Breweries & Distilleries",
+        },
+        {
+          symbol: "BERGEPAINT",
+          lastPrice: 527.9,
+          industry: "Paints",
+        },
+        {
+          symbol: "WIPRO",
+          lastPrice: 248.74,
+          industry: "Computers - Software & Consulting",
+        },
+        {
+          symbol: "ALKYLAMINE",
+          lastPrice: 2150,
+          industry: "Specialty Chemicals",
+        },
+        {
+          symbol: "ICICIPRULI",
+          lastPrice: 626.15,
+          industry: "Life Insurance",
+        },
+        {
+          symbol: "TATAINVEST",
+          lastPrice: 6920,
+          industry: "Investment Company",
+        },
+        {
+          symbol: "MANYAVAR",
+          lastPrice: 774.4,
+          industry: "Speciality Retail",
+        },
+        {
+          symbol: "TIINDIA",
+          lastPrice: 3082,
+          industry: "Auto Components & Equipments",
+        },
+        {
+          symbol: "PNBHOUSING",
+          lastPrice: 800.05,
+          industry: "Housing Finance Company",
+        },
+        {
+          symbol: "APARINDS",
+          lastPrice: 8182.5,
+          industry: "Other Electrical Equipment",
+        },
+        {
+          symbol: "GICRE",
+          lastPrice: 380.9,
+          industry: "General Insurance",
+        },
+        {
+          symbol: "BRITANNIA",
+          lastPrice: 5568,
+          industry: "Packaged Foods",
+        },
+        {
+          symbol: "IEX",
+          lastPrice: 143.86,
+          industry: "Exchange and Data Platform",
+        },
+        {
+          symbol: "ADANIGREEN",
+          lastPrice: 961.5,
+          industry: "Power Generation",
+        },
+        {
+          symbol: "NEWGEN",
+          lastPrice: 866.45,
+          industry: "Computers - Software & Consulting",
+        },
+        {
+          symbol: "NSLNISP",
+          lastPrice: 38.84,
+          industry: "Iron & Steel",
+        },
+        {
+          symbol: "NTPC",
+          lastPrice: 336.95,
+          industry: "Power Generation",
+        },
+        {
+          symbol: "TORNTPOWER",
+          lastPrice: 1284.7,
+          industry: "Integrated Power Utilities",
+        },
+        {
+          symbol: "MRF",
+          lastPrice: 147300,
+          industry: "Tyres & Rubber Products",
+        },
+        {
+          symbol: "JYOTICNC",
+          lastPrice: 956,
+          industry: "Industrial Products",
+        },
+        {
+          symbol: "INFY",
+          lastPrice: 1487.9,
+          industry: "Computers - Software & Consulting",
+        },
+        {
+          symbol: "LT",
+          lastPrice: 3592,
+          industry: "Civil Construction",
+        },
+        {
+          symbol: "SHRIRAMFIN",
+          lastPrice: 616.25,
+          industry: "Non Banking Financial Company (NBFC)",
+        },
+        {
+          symbol: "NBCC",
+          lastPrice: 103.74,
+          industry: "Civil Construction",
+        },
+        {
+          symbol: "UTIAMC",
+          lastPrice: 1369,
+          industry: "Asset Management Company",
+        },
+        {
+          symbol: "AWL",
+          lastPrice: 258.5,
+          industry: "Edible Oil",
+        },
+        {
+          symbol: "RAINBOW",
+          lastPrice: 1577.4,
+          industry: "Hospital",
+        },
+        {
+          symbol: "ITI",
+          lastPrice: 295.85,
+          industry: "Telecom - Equipment & Accessories",
+        },
+        {
+          symbol: "TRENT",
+          lastPrice: 5420,
+          industry: "Speciality Retail",
+        },
+        {
+          symbol: "HUDCO",
+          lastPrice: 211.58,
+          industry: "Financial Institution",
+        },
+        {
+          symbol: "MAPMYINDIA",
+          lastPrice: 1732,
+          industry: "Software Products",
+        },
+        {
+          symbol: "HINDUNILVR",
+          lastPrice: 2631.9,
+          industry: "Diversified FMCG",
+        },
+        {
+          symbol: "ABREL",
+          lastPrice: 1797.2,
+          industry: "Paper & Paper Products",
+        },
+        {
+          symbol: "WELSPUNLIV",
+          lastPrice: 118.68,
+          industry: "Other Textile Products",
+        },
+        {
+          symbol: "ANGELONE",
+          lastPrice: 2522,
+          industry: "Stockbroking & Allied",
+        },
+        {
+          symbol: "SBICARD",
+          lastPrice: 820.1,
+          industry: "Non Banking Financial Company (NBFC)",
+        },
+        {
+          symbol: "GPPL",
+          lastPrice: 155.8,
+          industry: "Port & Port services",
+        },
+        {
+          symbol: "BAJAJFINSV",
+          lastPrice: 1967.6,
+          industry: "Holding Company",
+        },
+        {
+          symbol: "TATAPOWER",
+          lastPrice: 385.6,
+          industry: "Integrated Power Utilities",
+        },
+        {
+          symbol: "VOLTAS",
+          lastPrice: 1354.1,
+          industry: "Household Appliances",
+        },
+        {
+          symbol: "LICI",
+          lastPrice: 890,
+          industry: "Life Insurance",
+        },
+        {
+          symbol: "TATAMOTORS",
+          lastPrice: 680.95,
+          industry: "Passenger Cars & Utility Vehicles",
+        },
+        {
+          symbol: "HINDALCO",
+          lastPrice: 702.65,
+          industry: "Aluminium",
+        },
+        {
+          symbol: "ZFCVINDIA",
+          lastPrice: 14501,
+          industry: "Auto Components & Equipments",
+        },
+        {
+          symbol: "WELCORP",
+          lastPrice: 889.2,
+          industry: "Iron & Steel Products",
+        },
+        {
+          symbol: "IOC",
+          lastPrice: 140.49,
+          industry: "Refineries & Marketing",
+        },
+        {
+          symbol: "SAPPHIRE",
+          lastPrice: 326.25,
+          industry: "Restaurants",
+        },
+        {
+          symbol: "IDFCFIRSTB",
+          lastPrice: 69.6,
+          industry: "Private Sector Bank",
+        },
+        {
+          symbol: "PAGEIND",
+          lastPrice: 45580,
+          industry: "Garments & Apparels",
+        },
+        {
+          symbol: "BALKRISIND",
+          lastPrice: 2397.5,
+          industry: "Tyres & Rubber Products",
+        },
+        {
+          symbol: "PFIZER",
+          lastPrice: 5641.5,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "ICICIBANK",
+          lastPrice: 1435.9,
+          industry: "Private Sector Bank",
+        },
+        {
+          symbol: "ASTERDM",
+          lastPrice: 603,
+          industry: "Hospital",
+        },
+        {
+          symbol: "3MINDIA",
+          lastPrice: 30655,
+          industry: "Diversified",
+        },
+        {
+          symbol: "INDUSINDBK",
+          lastPrice: 761.9,
+          industry: "Private Sector Bank",
+        },
+        {
+          symbol: "INDHOTEL",
+          lastPrice: 789.9,
+          industry: "Hotels & Resorts",
+        },
+        {
+          symbol: "AJANTPHARM",
+          lastPrice: 2637.5,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "JSWENERGY",
+          lastPrice: 517.5,
+          industry: "Power Generation",
+        },
+        {
+          symbol: "FSL",
+          lastPrice: 368.55,
+          industry:
+            "Business Process Outsourcing (BPO)/ Knowledge Process Outsourcing (KPO)",
+        },
+        {
+          symbol: "JWL",
+          lastPrice: 340.7,
+          industry: "Railway Wagons",
+        },
+        {
+          symbol: "EICHERMOT",
+          lastPrice: 5930,
+          industry: "2/3 Wheelers",
+        },
+        {
+          symbol: "HDFCLIFE",
+          lastPrice: 789.5,
+          industry: "Life Insurance",
+        },
+        {
+          symbol: "ALIVUS",
+          lastPrice: 963,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "AXISBANK",
+          lastPrice: 1070.7,
+          industry: "Private Sector Bank",
+        },
+        {
+          symbol: "BRIGADE",
+          lastPrice: 960.2,
+          industry: "Residential Commercial Projects",
+        },
+        {
+          symbol: "YESBANK",
+          lastPrice: 19.28,
+          industry: "Private Sector Bank",
+        },
+        {
+          symbol: "ANANTRAJ",
+          lastPrice: 548.5,
+          industry: "Residential Commercial Projects",
+        },
+        {
+          symbol: "OFSS",
+          lastPrice: 8632,
+          industry: "Software Products",
+        },
+        {
+          symbol: "GILLETTE",
+          lastPrice: 10343,
+          industry: "Personal Care",
+        },
+        {
+          symbol: "TBOTEK",
+          lastPrice: 1444.5,
+          industry: "Tour Travel Related Services",
+        },
+        {
+          symbol: "NAVA",
+          lastPrice: 670,
+          industry: "Power Generation",
+        },
+        {
+          symbol: "GRAPHITE",
+          lastPrice: 537,
+          industry: "Electrodes & Refractories",
+        },
+        {
+          symbol: "HINDPETRO",
+          lastPrice: 390,
+          industry: "Refineries & Marketing",
+        },
+        {
+          symbol: "NCC",
+          lastPrice: 217.05,
+          industry: "Civil Construction",
+        },
+        {
+          symbol: "CHENNPETRO",
+          lastPrice: 658.2,
+          industry: "Refineries & Marketing",
+        },
+        {
+          symbol: "TANLA",
+          lastPrice: 623.85,
+          industry: "Software Products",
+        },
+        {
+          symbol: "GAIL",
+          lastPrice: 176.3,
+          industry: "Gas Transmission/Marketing",
+        },
+        {
+          symbol: "PNCINFRA",
+          lastPrice: 309.95,
+          industry: "Civil Construction",
+        },
+        {
+          symbol: "LINDEINDIA",
+          lastPrice: 6296,
+          industry: "Industrial Gases",
+        },
+        {
+          symbol: "LICHSGFIN",
+          lastPrice: 563.1,
+          industry: "Housing Finance Company",
+        },
+        {
+          symbol: "SIGNATURE",
+          lastPrice: 1121.7,
+          industry: "Residential Commercial Projects",
+        },
+        {
+          symbol: "CHALET",
+          lastPrice: 1015,
+          industry: "Hotels & Resorts",
+        },
+        {
+          symbol: "SAIL",
+          lastPrice: 122.2,
+          industry: "Iron & Steel",
+        },
+        {
+          symbol: "BLUEDART",
+          lastPrice: 5802,
+          industry: "Logistics Solution Provider",
+        },
+        {
+          symbol: "JYOTHYLAB",
+          lastPrice: 340.9,
+          industry: "Household Products",
+        },
+        {
+          symbol: "FEDERALBNK",
+          lastPrice: 196.5,
+          industry: "Private Sector Bank",
+        },
+        {
+          symbol: "ONGC",
+          lastPrice: 236.2,
+          industry: "Oil Exploration & Production",
+        },
+        {
+          symbol: "GRSE",
+          lastPrice: 2556.9,
+          industry: "Aerospace & Defense",
+        },
+        {
+          symbol: "SIEMENS",
+          lastPrice: 3169,
+          industry: "Heavy Electrical Equipment",
+        },
+        {
+          symbol: "JPPOWER",
+          lastPrice: 18.9,
+          industry: "Power Generation",
+        },
+        {
+          symbol: "SONATSOFTW",
+          lastPrice: 373.8,
+          industry: "Computers - Software & Consulting",
+        },
+        {
+          symbol: "CENTURYPLY",
+          lastPrice: 734,
+          industry: "Plywood Boards/ Laminates",
+        },
+        {
+          symbol: "CONCOR",
+          lastPrice: 548.15,
+          industry: "Logistics Solution Provider",
+        },
+        {
+          symbol: "BPCL",
+          lastPrice: 317,
+          industry: "Refineries & Marketing",
+        },
+        {
+          symbol: "UBL",
+          lastPrice: 1875.1,
+          industry: "Breweries & Distilleries",
+        },
+        {
+          symbol: "BBTC",
+          lastPrice: 1825,
+          industry: "Packaged Foods",
+        },
+        {
+          symbol: "ETERNAL",
+          lastPrice: 318.75,
+          industry: "E-Retail/ E-Commerce",
+        },
+        {
+          symbol: "SAMMAANCAP",
+          lastPrice: 121.99,
+          industry: "Housing Finance Company",
+        },
+        {
+          symbol: "SHYAMMETL",
+          lastPrice: 940,
+          industry: "Iron & Steel Products",
+        },
+        {
+          symbol: "MAHABANK",
+          lastPrice: 54.73,
+          industry: "Public Sector Bank",
+        },
+        {
+          symbol: "KIMS",
+          lastPrice: 739,
+          industry: "Hospital",
+        },
+        {
+          symbol: "AEGISLOG",
+          lastPrice: 734,
+          industry: "Trading - Gas",
+        },
+        {
+          symbol: "CANBK",
+          lastPrice: 109.99,
+          industry: "Public Sector Bank",
+        },
+        {
+          symbol: "JINDALSAW",
+          lastPrice: 203.14,
+          industry: "Iron & Steel Products",
+        },
+        {
+          symbol: "PCBL",
+          lastPrice: 380,
+          industry: "Carbon Black",
+        },
+        {
+          symbol: "AMBER",
+          lastPrice: 7259,
+          industry: "Household Appliances",
+        },
+        {
+          symbol: "COALINDIA",
+          lastPrice: 374.3,
+          industry: "Coal",
+        },
+        {
+          symbol: "NLCINDIA",
+          lastPrice: 234.46,
+          industry: "Power Generation",
+        },
+        {
+          symbol: "JIOFIN",
+          lastPrice: 320.5,
+          industry: "Investment Company",
+        },
+        {
+          symbol: "IGIL",
+          lastPrice: 350.45,
+          industry: "Diversified Commercial Services",
+        },
+        {
+          symbol: "RELIANCE",
+          lastPrice: 1409.9,
+          industry: "Refineries & Marketing",
+        },
+        {
+          symbol: "CASTROLIND",
+          lastPrice: 206.48,
+          industry: "Lubricants",
+        },
+        {
+          symbol: "HAPPSTMNDS",
+          lastPrice: 590.95,
+          industry: "Computers - Software & Consulting",
+        },
+        {
+          symbol: "JKTYRE",
+          lastPrice: 326,
+          industry: "Tyres & Rubber Products",
+        },
+        {
+          symbol: "UCOBANK",
+          lastPrice: 28.92,
+          industry: "Public Sector Bank",
+        },
+        {
+          symbol: "ELGIEQUIP",
+          lastPrice: 500.05,
+          industry: "Compressors Pumps & Diesel Engines",
+        },
+        {
+          symbol: "MARICO",
+          lastPrice: 731.7,
+          industry: "Edible Oil",
+        },
+        {
+          symbol: "CAPLIPOINT",
+          lastPrice: 2187.5,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "GUJGASLTD",
+          lastPrice: 430.5,
+          industry: "LPG/CNG/PNG/LNG Supplier",
+        },
+        {
+          symbol: "SBIN",
+          lastPrice: 816.8,
+          industry: "Public Sector Bank",
+        },
+        {
+          symbol: "JINDALSTEL",
+          lastPrice: 997.25,
+          industry: "Iron & Steel",
+        },
+        {
+          symbol: "SBILIFE",
+          lastPrice: 1857,
+          industry: "Life Insurance",
+        },
+        {
+          symbol: "BANKBARODA",
+          lastPrice: 240.7,
+          industry: "Public Sector Bank",
+        },
+        {
+          symbol: "JUSTDIAL",
+          lastPrice: 832.2,
+          industry: "Internet & Catalogue Retail",
+        },
+        {
+          symbol: "AIAENG",
+          lastPrice: 3081,
+          industry: "Castings & Forgings",
+        },
+        {
+          symbol: "ACE",
+          lastPrice: 986.5,
+          industry: "Construction Vehicles",
+        },
+        {
+          symbol: "JSWINFRA",
+          lastPrice: 305.3,
+          industry: "Port & Port services",
+        },
+        {
+          symbol: "DOMS",
+          lastPrice: 2475.3,
+          industry: "Stationary",
+        },
+        {
+          symbol: "POWERINDIA",
+          lastPrice: 19860,
+          industry: "Heavy Electrical Equipment",
+        },
+        {
+          symbol: "BATAINDIA",
+          lastPrice: 1105.7,
+          industry: "Footwear",
+        },
+        {
+          symbol: "WHIRLPOOL",
+          lastPrice: 1301,
+          industry: "Household Appliances",
+        },
+        {
+          symbol: "GODIGIT",
+          lastPrice: 368,
+          industry: "General Insurance",
+        },
+        {
+          symbol: "RECLTD",
+          lastPrice: 376.1,
+          industry: "Financial Institution",
+        },
+        {
+          symbol: "ENDURANCE",
+          lastPrice: 2832.6,
+          industry: "Auto Components & Equipments",
+        },
+        {
+          symbol: "GODREJAGRO",
+          lastPrice: 745,
+          industry: "Animal Feed",
+        },
+        {
+          symbol: "MAHSEAMLES",
+          lastPrice: 667.05,
+          industry: "Iron & Steel Products",
+        },
+        {
+          symbol: "TECHM",
+          lastPrice: 1503,
+          industry: "Computers - Software & Consulting",
+        },
+        {
+          symbol: "NHPC",
+          lastPrice: 80.84,
+          industry: "Power Generation",
+        },
+        {
+          symbol: "UNIONBANK",
+          lastPrice: 134.86,
+          industry: "Public Sector Bank",
+        },
+        {
+          symbol: "HINDCOPPER",
+          lastPrice: 236.88,
+          industry: "Copper",
+        },
+        {
+          symbol: "IOB",
+          lastPrice: 37.95,
+          industry: "Public Sector Bank",
+        },
+        {
+          symbol: "PREMIERENE",
+          lastPrice: 1010,
+          industry: "Other Electrical Equipment",
+        },
+        {
+          symbol: "BIKAJI",
+          lastPrice: 768.6,
+          industry: "Packaged Foods",
+        },
+        {
+          symbol: "DALBHARAT",
+          lastPrice: 2319.2,
+          industry: "Cement & Cement Products",
+        },
+        {
+          symbol: "RAYMOND",
+          lastPrice: 625,
+          industry: "Residential Commercial Projects",
+        },
+        {
+          symbol: "EMAMILTD",
+          lastPrice: 611.4,
+          industry: "Personal Care",
+        },
+        {
+          symbol: "MFSL",
+          lastPrice: 1638,
+          industry: "Life Insurance",
+        },
+        {
+          symbol: "PRAJIND",
+          lastPrice: 407.5,
+          industry: "Industrial Products",
+        },
+        {
+          symbol: "HDFCBANK",
+          lastPrice: 1965.5,
+          industry: "Private Sector Bank",
+        },
+        {
+          symbol: "CROMPTON",
+          lastPrice: 316.7,
+          industry: "Household Appliances",
+        },
+        {
+          symbol: "GRANULES",
+          lastPrice: 456,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "IFCI",
+          lastPrice: 54.05,
+          industry: "Financial Institution",
+        },
+        {
+          symbol: "HINDZINC",
+          lastPrice: 425.2,
+          industry: "Zinc",
+        },
+        {
+          symbol: "CENTRALBK",
+          lastPrice: 35.89,
+          industry: "Public Sector Bank",
+        },
+        {
+          symbol: "RITES",
+          lastPrice: 255.9,
+          industry: "Civil Construction",
+        },
+        {
+          symbol: "RENUKA",
+          lastPrice: 29.04,
+          industry: "Sugar",
+        },
+        {
+          symbol: "COHANCE",
+          lastPrice: 886,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "FORTIS",
+          lastPrice: 934.8,
+          industry: "Hospital",
+        },
+        {
+          symbol: "CRAFTSMAN",
+          lastPrice: 6805.5,
+          industry: "Auto Components & Equipments",
+        },
+        {
+          symbol: "EXIDEIND",
+          lastPrice: 395,
+          industry: "Auto Components & Equipments",
+        },
+        {
+          symbol: "NATIONALUM",
+          lastPrice: 188.85,
+          industry: "Aluminium",
+        },
+        {
+          symbol: "ROUTE",
+          lastPrice: 880,
+          industry: "Other Telecom Services",
+        },
+        {
+          symbol: "BSOFT",
+          lastPrice: 375.9,
+          industry: "Computers - Software & Consulting",
+        },
+        {
+          symbol: "LAURUSLABS",
+          lastPrice: 877.45,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "KPITTECH",
+          lastPrice: 1197.1,
+          industry: "Computers - Software & Consulting",
+        },
+        {
+          symbol: "J&KBANK",
+          lastPrice: 102.68,
+          industry: "Private Sector Bank",
+        },
+        {
+          symbol: "MMTC",
+          lastPrice: 64.15,
+          industry: "Trading & Distributors",
+        },
+        {
+          symbol: "CHOLAHLDNG",
+          lastPrice: 1859,
+          industry: "Investment Company",
+        },
+        {
+          symbol: "BAYERCROP",
+          lastPrice: 5515,
+          industry: "Pesticides & Agrochemicals",
+        },
+        {
+          symbol: "CREDITACC",
+          lastPrice: 1375.9,
+          industry: "Microfinance Institutions",
+        },
+        {
+          symbol: "SCHAEFFLER",
+          lastPrice: 3958.1,
+          industry: "Auto Components & Equipments",
+        },
+        {
+          symbol: "LATENTVIEW",
+          lastPrice: 420.2,
+          industry: "Computers - Software & Consulting",
+        },
+        {
+          symbol: "ABB",
+          lastPrice: 5067.5,
+          industry: "Heavy Electrical Equipment",
+        },
+        {
+          symbol: "RVNL",
+          lastPrice: 323.9,
+          industry: "Civil Construction",
+        },
+        {
+          symbol: "DLF",
+          lastPrice: 762,
+          industry: "Residential Commercial Projects",
+        },
+        {
+          symbol: "NIACL",
+          lastPrice: 196,
+          industry: "General Insurance",
+        },
+        {
+          symbol: "BAJAJHLDNG",
+          lastPrice: 13500,
+          industry: "Holding Company",
+        },
+        {
+          symbol: "FIRSTCRY",
+          lastPrice: 383.4,
+          industry: "E-Retail/ E-Commerce",
+        },
+        {
+          symbol: "ELECON",
+          lastPrice: 555.85,
+          industry: "Heavy Electrical Equipment",
+        },
+        {
+          symbol: "TATAELXSI",
+          lastPrice: 5575,
+          industry: "Computers - Software & Consulting",
+        },
+        {
+          symbol: "AMBUJACEM",
+          lastPrice: 579.95,
+          industry: "Cement & Cement Products",
+        },
+        {
+          symbol: "JUBLFOOD",
+          lastPrice: 618,
+          industry: "Restaurants",
+        },
+        {
+          symbol: "WAAREEENER",
+          lastPrice: 3175,
+          industry: "Other Electrical Equipment",
+        },
+        {
+          symbol: "WESTLIFE",
+          lastPrice: 699.95,
+          industry: "Restaurants",
+        },
+        {
+          symbol: "JSWHL",
+          lastPrice: 17990,
+          industry: "Investment Company",
+        },
+        {
+          symbol: "ADANIPORTS",
+          lastPrice: 1340.9,
+          industry: "Port & Port services",
+        },
+        {
+          symbol: "TCS",
+          lastPrice: 3054.7,
+          industry: "Computers - Software & Consulting",
+        },
+        {
+          symbol: "CANFINHOME",
+          lastPrice: 770,
+          industry: "Housing Finance Company",
+        },
+        {
+          symbol: "ACC",
+          lastPrice: 1821,
+          industry: "Cement & Cement Products",
+        },
+        {
+          symbol: "IIFL",
+          lastPrice: 452.45,
+          industry: "Non Banking Financial Company (NBFC)",
+        },
+        {
+          symbol: "GESHIP",
+          lastPrice: 964.5,
+          industry: "Shipping",
+        },
+        {
+          symbol: "JSWSTEEL",
+          lastPrice: 1054.4,
+          industry: "Iron & Steel",
+        },
+        {
+          symbol: "MAXHEALTH",
+          lastPrice: 1229.9,
+          industry: "Hospital",
+        },
+        {
+          symbol: "AUBANK",
+          lastPrice: 740,
+          industry: "Other Bank",
+        },
+        {
+          symbol: "NH",
+          lastPrice: 1818,
+          industry: "Hospital",
+        },
+        {
+          symbol: "KNRCON",
+          lastPrice: 199.1,
+          industry: "Civil Construction",
+        },
+        {
+          symbol: "PNB",
+          lastPrice: 105.39,
+          industry: "Public Sector Bank",
+        },
+        {
+          symbol: "NESTLEIND",
+          lastPrice: 1159.8,
+          industry: "Packaged Foods",
+        },
+        {
+          symbol: "MRPL",
+          lastPrice: 124.5,
+          industry: "Refineries & Marketing",
+        },
+        {
+          symbol: "NMDC",
+          lastPrice: 70.15,
+          industry: "Industrial Minerals",
+        },
+        {
+          symbol: "KOTAKBANK",
+          lastPrice: 1983.3,
+          industry: "Private Sector Bank",
+        },
+        {
+          symbol: "CARBORUNIV",
+          lastPrice: 929,
+          industry: "Abrasives & Bearings",
+        },
+        {
+          symbol: "HCLTECH",
+          lastPrice: 1467.1,
+          industry: "Computers - Software & Consulting",
+        },
+        {
+          symbol: "CRISIL",
+          lastPrice: 5305,
+          industry: "Other Financial Services",
+        },
+        {
+          symbol: "ITC",
+          lastPrice: 398.3,
+          industry: "Diversified FMCG",
+        },
+        {
+          symbol: "IRB",
+          lastPrice: 43.79,
+          industry: "Civil Construction",
+        },
+        {
+          symbol: "RTNINDIA",
+          lastPrice: 52.63,
+          industry: "E-Retail/ E-Commerce",
+        },
+        {
+          symbol: "ENGINERSIN",
+          lastPrice: 191.5,
+          industry: "Civil Construction",
+        },
+        {
+          symbol: "ABCAPITAL",
+          lastPrice: 285.7,
+          industry: "Investment Company",
+        },
+        {
+          symbol: "VTL",
+          lastPrice: 413.1,
+          industry: "Other Textile Products",
+        },
+        {
+          symbol: "SHREECEM",
+          lastPrice: 30000,
+          industry: "Cement & Cement Products",
+        },
+        {
+          symbol: "ADANIENSOL",
+          lastPrice: 799,
+          industry: "Power Distribution",
+        },
+        {
+          symbol: "TATASTEEL",
+          lastPrice: 158.3,
+          industry: "Iron & Steel",
+        },
+        {
+          symbol: "RAILTEL",
+          lastPrice: 354.95,
+          industry: "Other Telecom Services",
+        },
+        {
+          symbol: "LODHA",
+          lastPrice: 1263,
+          industry: "Residential Commercial Projects",
+        },
+        {
+          symbol: "BANDHANBNK",
+          lastPrice: 173.2,
+          industry: "Private Sector Bank",
+        },
+        {
+          symbol: "HEROMOTOCO",
+          lastPrice: 4992.3,
+          industry: "2/3 Wheelers",
+        },
+        {
+          symbol: "ULTRACEMCO",
+          lastPrice: 12605,
+          industry: "Cement & Cement Products",
+        },
+        {
+          symbol: "ECLERX",
+          lastPrice: 3915,
+          industry:
+            "Business Process Outsourcing (BPO)/ Knowledge Process Outsourcing (KPO)",
+        },
+        {
+          symbol: "MOTILALOFS",
+          lastPrice: 929.25,
+          industry: "Stockbroking & Allied",
+        },
+        {
+          symbol: "KIRLOSBROS",
+          lastPrice: 1944.8,
+          industry: "Compressors Pumps & Diesel Engines",
+        },
+        {
+          symbol: "HEG",
+          lastPrice: 486,
+          industry: "Electrodes & Refractories",
+        },
+        {
+          symbol: "ZENSARTECH",
+          lastPrice: 792.05,
+          industry: "Computers - Software & Consulting",
+        },
+        {
+          symbol: "CUB",
+          lastPrice: 211.52,
+          industry: "Private Sector Bank",
+        },
+        {
+          symbol: "HSCL",
+          lastPrice: 467.95,
+          industry: "Carbon Black",
+        },
+        {
+          symbol: "NAUKRI",
+          lastPrice: 1382,
+          industry: "Internet & Catalogue Retail",
+        },
+        {
+          symbol: "RPOWER",
+          lastPrice: 48.99,
+          industry: "Power Generation",
+        },
+        {
+          symbol: "DEVYANI",
+          lastPrice: 170.2,
+          industry: "Restaurants",
+        },
+        {
+          symbol: "ADANIENT",
+          lastPrice: 2323,
+          industry: "Trading - Minerals",
+        },
+        {
+          symbol: "IKS",
+          lastPrice: 1550,
+          industry: "IT Enabled Services",
+        },
+        {
+          symbol: "COLPAL",
+          lastPrice: 2296,
+          industry: "Personal Care",
+        },
+        {
+          symbol: "APTUS",
+          lastPrice: 346.95,
+          industry: "Housing Finance Company",
+        },
+        {
+          symbol: "ASIANPAINT",
+          lastPrice: 2505,
+          industry: "Paints",
+        },
+        {
+          symbol: "ABBOTINDIA",
+          lastPrice: 31850,
+          industry: "Pharmaceuticals",
+        },
+        {
+          symbol: "KANSAINER",
+          lastPrice: 232.4,
+          industry: "Paints",
+        },
+        {
+          symbol: "MAZDOCK",
+          lastPrice: 2700,
+          industry: "Ship Building & Allied Services",
+        },
+        {
+          symbol: "SWIGGY",
+          lastPrice: 424.9,
+          industry: "E-Retail/ E-Commerce",
+        },
+        {
+          symbol: "BHARATFORG",
+          lastPrice: 1124.8,
+          industry: "Auto Components & Equipments",
+        },
+        {
+          symbol: "GRASIM",
+          lastPrice: 2807.8,
+          industry: "Cement & Cement Products",
+        },
+        {
+          symbol: "SOBHA",
+          lastPrice: 1480,
+          industry: "Residential Commercial Projects",
+        },
+        {
+          symbol: "LLOYDSME",
+          lastPrice: 1356.4,
+          industry: "Industrial Minerals",
+        },
+        {
+          symbol: "RAYMONDLSL",
+          lastPrice: 1155,
+          industry: "Other Textile Products",
+        },
+        {
+          symbol: "ICICIGI",
+          lastPrice: 1915,
+          industry: "General Insurance",
+        },
+        {
+          symbol: "DBREALTY",
+          lastPrice: 174.6,
+          industry: "Hotels & Resorts",
+        },
+        {
+          symbol: "MOTHERSON",
+          lastPrice: 95.26,
+          industry: "Auto Components & Equipments",
+        },
+        {
+          symbol: "IDBI",
+          lastPrice: 94.9,
+          industry: "Private Sector Bank",
+        },
+        {
+          symbol: "CCL",
+          lastPrice: 878,
+          industry: "Tea & Coffee",
+        },
+        {
+          symbol: "RHIM",
+          lastPrice: 485.5,
+          industry: "Electrodes & Refractories",
+        },
+        {
+          symbol: "RAMCOCEM",
+          lastPrice: 1079.9,
+          industry: "Cement & Cement Products",
+        },
+        {
+          symbol: "MSUMI",
+          lastPrice: 41.5,
+          industry: "Auto Components & Equipments",
+        },
+        {
+          symbol: "HYUNDAI",
+          lastPrice: 2365,
+          industry: "Passenger Cars & Utility Vehicles",
+        },
+        {
+          symbol: "LTFOODS",
+          lastPrice: 433.5,
+          industry: "Other Agricultural Products",
+        },
+        {
+          symbol: "OLAELEC",
+          lastPrice: 46.98,
+          industry: "2/3 Wheelers",
+        },
+        {
+          symbol: "INDIACEM",
+          lastPrice: 375.55,
+          industry: "Cement & Cement Products",
+        },
+        {
+          symbol: "JKCEMENT",
+          lastPrice: 6828,
+          industry: "Cement & Cement Products",
+        },
+        {
+          symbol: "GODFRYPHLP",
+          lastPrice: 10550,
+          industry: "Cigarettes & Tobacco Products",
+        },
+      ];
+    </script>
+  </head>
+  <body>
+    <select id="symbol">
+      <option value="360ONE">360ONE</option>
+      <option value="3MINDIA">3MINDIA</option>
+      <option value="AADHARHFC">AADHARHFC</option>
+      <option value="AARTIIND">AARTIIND</option>
+      <option value="AAVAS">AAVAS</option>
+      <option value="ABB">ABB</option>
+      <option value="ABBOTINDIA">ABBOTINDIA</option>
+      <option value="ABCAPITAL">ABCAPITAL</option>
+      <option value="ABFRL">ABFRL</option>
+      <option value="ABREL">ABREL</option>
+      <option value="ABSLAMC">ABSLAMC</option>
+      <option value="ACC">ACC</option>
+      <option value="ACE">ACE</option>
+      <option value="ACMESOLAR">ACMESOLAR</option>
+      <option value="ADANIENSOL">ADANIENSOL</option>
+      <option value="ADANIENT">ADANIENT</option>
+      <option value="ADANIGREEN">ADANIGREEN</option>
+      <option value="ADANIPORTS">ADANIPORTS</option>
+      <option value="ADANIPOWER">ADANIPOWER</option>
+      <option value="AEGISLOG">AEGISLOG</option>
+      <option value="AFCONS">AFCONS</option>
+      <option value="AFFLE">AFFLE</option>
+      <option value="AIAENG">AIAENG</option>
+      <option value="AIIL">AIIL</option>
+      <option value="AJANTPHARM">AJANTPHARM</option>
+      <option value="AKUMS">AKUMS</option>
+      <option value="ALIVUS">ALIVUS</option>
+      <option value="ALKEM">ALKEM</option>
+      <option value="ALKYLAMINE">ALKYLAMINE</option>
+      <option value="ALOKINDS">ALOKINDS</option>
+      <option value="AMBER">AMBER</option>
+      <option value="AMBUJACEM">AMBUJACEM</option>
+      <option value="ANANDRATHI">ANANDRATHI</option>
+      <option value="ANANTRAJ">ANANTRAJ</option>
+      <option value="ANGELONE">ANGELONE</option>
+      <option value="APARINDS">APARINDS</option>
+      <option value="APLAPOLLO">APLAPOLLO</option>
+      <option value="APLLTD">APLLTD</option>
+      <option value="APOLLOHOSP">APOLLOHOSP</option>
+      <option value="APOLLOTYRE">APOLLOTYRE</option>
+      <option value="APTUS">APTUS</option>
+      <option value="ARE&M">M</option>
+      <option value="ASAHIINDIA">ASAHIINDIA</option>
+      <option value="ASHOKLEY">ASHOKLEY</option>
+      <option value="ASIANPAINT">ASIANPAINT</option>
+      <option value="ASTERDM">ASTERDM</option>
+      <option value="ASTRAL">ASTRAL</option>
+      <option value="ASTRAZEN">ASTRAZEN</option>
+      <option value="ATGL">ATGL</option>
+      <option value="ATUL">ATUL</option>
+      <option value="AUBANK">AUBANK</option>
+      <option value="AUROPHARMA">AUROPHARMA</option>
+      <option value="AWL">AWL</option>
+      <option value="AXISBANK">AXISBANK</option>
+      <option value="BAJAJ-AUTO">BAJAJ-AUTO</option>
+      <option value="BAJAJFINSV">BAJAJFINSV</option>
+      <option value="BAJAJHFL">BAJAJHFL</option>
+      <option value="BAJAJHLDNG">BAJAJHLDNG</option>
+      <option value="BAJFINANCE">BAJFINANCE</option>
+      <option value="BALKRISIND">BALKRISIND</option>
+      <option value="BALRAMCHIN">BALRAMCHIN</option>
+      <option value="BANDHANBNK">BANDHANBNK</option>
+      <option value="BANKBARODA">BANKBARODA</option>
+      <option value="BANKINDIA">BANKINDIA</option>
+      <option value="BASF">BASF</option>
+      <option value="BATAINDIA">BATAINDIA</option>
+      <option value="BAYERCROP">BAYERCROP</option>
+      <option value="BBTC">BBTC</option>
+      <option value="BDL">BDL</option>
+      <option value="BEL">BEL</option>
+      <option value="BEML">BEML</option>
+      <option value="BERGEPAINT">BERGEPAINT</option>
+      <option value="BHARATFORG">BHARATFORG</option>
+      <option value="BHARTIARTL">BHARTIARTL</option>
+      <option value="BHARTIHEXA">BHARTIHEXA</option>
+      <option value="BHEL">BHEL</option>
+      <option value="BIKAJI">BIKAJI</option>
+      <option value="BIOCON">BIOCON</option>
+      <option value="BLS">BLS</option>
+      <option value="BLUEDART">BLUEDART</option>
+      <option value="BLUESTARCO">BLUESTARCO</option>
+      <option value="BOSCHLTD">BOSCHLTD</option>
+      <option value="BPCL">BPCL</option>
+      <option value="BRIGADE">BRIGADE</option>
+      <option value="BRITANNIA">BRITANNIA</option>
+      <option value="BSE">BSE</option>
+      <option value="BSOFT">BSOFT</option>
+      <option value="CAMPUS">CAMPUS</option>
+      <option value="CAMS">CAMS</option>
+      <option value="CANBK">CANBK</option>
+      <option value="CANFINHOME">CANFINHOME</option>
+      <option value="CAPLIPOINT">CAPLIPOINT</option>
+      <option value="CARBORUNIV">CARBORUNIV</option>
+      <option value="CASTROLIND">CASTROLIND</option>
+      <option value="CCL">CCL</option>
+      <option value="CDSL">CDSL</option>
+      <option value="CEATLTD">CEATLTD</option>
+      <option value="CENTRALBK">CENTRALBK</option>
+      <option value="CENTURYPLY">CENTURYPLY</option>
+      <option value="CERA">CERA</option>
+      <option value="CESC">CESC</option>
+      <option value="CGCL">CGCL</option>
+      <option value="CGPOWER">CGPOWER</option>
+      <option value="CHALET">CHALET</option>
+      <option value="CHAMBLFERT">CHAMBLFERT</option>
+      <option value="CHENNPETRO">CHENNPETRO</option>
+      <option value="CHOLAFIN">CHOLAFIN</option>
+      <option value="CHOLAHLDNG">CHOLAHLDNG</option>
+      <option value="CIPLA">CIPLA</option>
+      <option value="CLEAN">CLEAN</option>
+      <option value="COALINDIA">COALINDIA</option>
+      <option value="COCHINSHIP">COCHINSHIP</option>
+      <option value="COFORGE">COFORGE</option>
+      <option value="COHANCE">COHANCE</option>
+      <option value="COLPAL">COLPAL</option>
+      <option value="CONCOR">CONCOR</option>
+      <option value="CONCORDBIO">CONCORDBIO</option>
+      <option value="COROMANDEL">COROMANDEL</option>
+      <option value="CRAFTSMAN">CRAFTSMAN</option>
+      <option value="CREDITACC">CREDITACC</option>
+      <option value="CRISIL">CRISIL</option>
+      <option value="CROMPTON">CROMPTON</option>
+      <option value="CUB">CUB</option>
+      <option value="CUMMINSIND">CUMMINSIND</option>
+      <option value="CYIENT">CYIENT</option>
+      <option value="DABUR">DABUR</option>
+      <option value="DALBHARAT">DALBHARAT</option>
+      <option value="DATAPATTNS">DATAPATTNS</option>
+      <option value="DBREALTY">DBREALTY</option>
+      <option value="DCMSHRIRAM">DCMSHRIRAM</option>
+      <option value="DEEPAKFERT">DEEPAKFERT</option>
+      <option value="DEEPAKNTR">DEEPAKNTR</option>
+      <option value="DELHIVERY">DELHIVERY</option>
+      <option value="DEVYANI">DEVYANI</option>
+      <option value="DIVISLAB">DIVISLAB</option>
+      <option value="DIXON">DIXON</option>
+      <option value="DLF">DLF</option>
+      <option value="DMART">DMART</option>
+      <option value="DOMS">DOMS</option>
+      <option value="DRREDDY">DRREDDY</option>
+      <option value="ECLERX">ECLERX</option>
+      <option value="EICHERMOT">EICHERMOT</option>
+      <option value="EIDPARRY">EIDPARRY</option>
+      <option value="EIHOTEL">EIHOTEL</option>
+      <option value="ELECON">ELECON</option>
+      <option value="ELGIEQUIP">ELGIEQUIP</option>
+      <option value="EMAMILTD">EMAMILTD</option>
+      <option value="EMCURE">EMCURE</option>
+      <option value="ENDURANCE">ENDURANCE</option>
+      <option value="ENGINERSIN">ENGINERSIN</option>
+      <option value="ERIS">ERIS</option>
+      <option value="ESCORTS">ESCORTS</option>
+      <option value="ETERNAL">ETERNAL</option>
+      <option value="EXIDEIND">EXIDEIND</option>
+      <option value="FACT">FACT</option>
+      <option value="FEDERALBNK">FEDERALBNK</option>
+      <option value="FINCABLES">FINCABLES</option>
+      <option value="FINPIPE">FINPIPE</option>
+      <option value="FIRSTCRY">FIRSTCRY</option>
+      <option value="FIVESTAR">FIVESTAR</option>
+      <option value="FLUOROCHEM">FLUOROCHEM</option>
+      <option value="FORTIS">FORTIS</option>
+      <option value="FSL">FSL</option>
+      <option value="GAIL">GAIL</option>
+      <option value="GESHIP">GESHIP</option>
+      <option value="GICRE">GICRE</option>
+      <option value="GILLETTE">GILLETTE</option>
+      <option value="GLAND">GLAND</option>
+      <option value="GLAXO">GLAXO</option>
+      <option value="GLENMARK">GLENMARK</option>
+      <option value="GMDCLTD">GMDCLTD</option>
+      <option value="GMRAIRPORT">GMRAIRPORT</option>
+      <option value="GNFC">GNFC</option>
+      <option value="GODFRYPHLP">GODFRYPHLP</option>
+      <option value="GODIGIT">GODIGIT</option>
+      <option value="GODREJAGRO">GODREJAGRO</option>
+      <option value="GODREJCP">GODREJCP</option>
+      <option value="GODREJIND">GODREJIND</option>
+      <option value="GODREJPROP">GODREJPROP</option>
+      <option value="GPIL">GPIL</option>
+      <option value="GPPL">GPPL</option>
+      <option value="GRANULES">GRANULES</option>
+      <option value="GRAPHITE">GRAPHITE</option>
+      <option value="GRASIM">GRASIM</option>
+      <option value="GRAVITA">GRAVITA</option>
+      <option value="GRSE">GRSE</option>
+      <option value="GSPL">GSPL</option>
+      <option value="GUJGASLTD">GUJGASLTD</option>
+      <option value="GVT&D">D</option>
+      <option value="HAL">HAL</option>
+      <option value="HAPPSTMNDS">HAPPSTMNDS</option>
+      <option value="HAVELLS">HAVELLS</option>
+      <option value="HBLENGINE">HBLENGINE</option>
+      <option value="HCLTECH">HCLTECH</option>
+      <option value="HDFCAMC">HDFCAMC</option>
+      <option value="HDFCBANK">HDFCBANK</option>
+      <option value="HDFCLIFE">HDFCLIFE</option>
+      <option value="HEG">HEG</option>
+      <option value="HEROMOTOCO">HEROMOTOCO</option>
+      <option value="HFCL">HFCL</option>
+      <option value="HINDALCO">HINDALCO</option>
+      <option value="HINDCOPPER">HINDCOPPER</option>
+      <option value="HINDPETRO">HINDPETRO</option>
+      <option value="HINDUNILVR">HINDUNILVR</option>
+      <option value="HINDZINC">HINDZINC</option>
+      <option value="HOMEFIRST">HOMEFIRST</option>
+      <option value="HONASA">HONASA</option>
+      <option value="HONAUT">HONAUT</option>
+      <option value="HSCL">HSCL</option>
+      <option value="HUDCO">HUDCO</option>
+      <option value="HYUNDAI">HYUNDAI</option>
+      <option value="ICICIBANK">ICICIBANK</option>
+      <option value="ICICIGI">ICICIGI</option>
+      <option value="ICICIPRULI">ICICIPRULI</option>
+      <option value="IDBI">IDBI</option>
+      <option value="IDEA">IDEA</option>
+      <option value="IDFCFIRSTB">IDFCFIRSTB</option>
+      <option value="IEX">IEX</option>
+      <option value="IFCI">IFCI</option>
+      <option value="IGIL">IGIL</option>
+      <option value="IGL">IGL</option>
+      <option value="IIFL">IIFL</option>
+      <option value="IKS">IKS</option>
+      <option value="INDGN">INDGN</option>
+      <option value="INDHOTEL">INDHOTEL</option>
+      <option value="INDIACEM">INDIACEM</option>
+      <option value="INDIAMART">INDIAMART</option>
+      <option value="INDIANB">INDIANB</option>
+      <option value="INDIGO">INDIGO</option>
+      <option value="INDUSINDBK">INDUSINDBK</option>
+      <option value="INDUSTOWER">INDUSTOWER</option>
+      <option value="INFY">INFY</option>
+      <option value="INOXINDIA">INOXINDIA</option>
+      <option value="INOXWIND">INOXWIND</option>
+      <option value="INTELLECT">INTELLECT</option>
+      <option value="IOB">IOB</option>
+      <option value="IOC">IOC</option>
+      <option value="IPCALAB">IPCALAB</option>
+      <option value="IRB">IRB</option>
+      <option value="IRCON">IRCON</option>
+      <option value="IRCTC">IRCTC</option>
+      <option value="IREDA">IREDA</option>
+      <option value="IRFC">IRFC</option>
+      <option value="ITC">ITC</option>
+      <option value="ITI">ITI</option>
+      <option value="J&KBANK">KBANK</option>
+      <option value="JBCHEPHARM">JBCHEPHARM</option>
+      <option value="JBMA">JBMA</option>
+      <option value="JINDALSAW">JINDALSAW</option>
+      <option value="JINDALSTEL">JINDALSTEL</option>
+      <option value="JIOFIN">JIOFIN</option>
+      <option value="JKCEMENT">JKCEMENT</option>
+      <option value="JKTYRE">JKTYRE</option>
+      <option value="JMFINANCIL">JMFINANCIL</option>
+      <option value="JPPOWER">JPPOWER</option>
+      <option value="JSL">JSL</option>
+      <option value="JSWENERGY">JSWENERGY</option>
+      <option value="JSWHL">JSWHL</option>
+      <option value="JSWINFRA">JSWINFRA</option>
+      <option value="JSWSTEEL">JSWSTEEL</option>
+      <option value="JUBLFOOD">JUBLFOOD</option>
+      <option value="JUBLINGREA">JUBLINGREA</option>
+      <option value="JUBLPHARMA">JUBLPHARMA</option>
+      <option value="JUSTDIAL">JUSTDIAL</option>
+      <option value="JWL">JWL</option>
+      <option value="JYOTHYLAB">JYOTHYLAB</option>
+      <option value="JYOTICNC">JYOTICNC</option>
+      <option value="KAJARIACER">KAJARIACER</option>
+      <option value="KALYANKJIL">KALYANKJIL</option>
+      <option value="KANSAINER">KANSAINER</option>
+      <option value="KARURVYSYA">KARURVYSYA</option>
+      <option value="KAYNES">KAYNES</option>
+      <option value="KEC">KEC</option>
+      <option value="KEI">KEI</option>
+      <option value="KFINTECH">KFINTECH</option>
+      <option value="KIMS">KIMS</option>
+      <option value="KIRLOSBROS">KIRLOSBROS</option>
+      <option value="KIRLOSENG">KIRLOSENG</option>
+      <option value="KNRCON">KNRCON</option>
+      <option value="KOTAKBANK">KOTAKBANK</option>
+      <option value="KPIL">KPIL</option>
+      <option value="KPITTECH">KPITTECH</option>
+      <option value="KPRMILL">KPRMILL</option>
+      <option value="LALPATHLAB">LALPATHLAB</option>
+      <option value="LATENTVIEW">LATENTVIEW</option>
+      <option value="LAURUSLABS">LAURUSLABS</option>
+      <option value="LEMONTREE">LEMONTREE</option>
+      <option value="LICHSGFIN">LICHSGFIN</option>
+      <option value="LICI">LICI</option>
+      <option value="LINDEINDIA">LINDEINDIA</option>
+      <option value="LLOYDSME">LLOYDSME</option>
+      <option value="LODHA">LODHA</option>
+      <option value="LT">LT</option>
+      <option value="LTF">LTF</option>
+      <option value="LTFOODS">LTFOODS</option>
+      <option value="LTIM">LTIM</option>
+      <option value="LTTS">LTTS</option>
+      <option value="LUPIN">LUPIN</option>
+      <option value="M&M">M</option>
+      <option value="M&MFIN">MFIN</option>
+      <option value="MAHABANK">MAHABANK</option>
+      <option value="MAHSEAMLES">MAHSEAMLES</option>
+      <option value="MANAPPURAM">MANAPPURAM</option>
+      <option value="MANKIND">MANKIND</option>
+      <option value="MANYAVAR">MANYAVAR</option>
+      <option value="MAPMYINDIA">MAPMYINDIA</option>
+      <option value="MARICO">MARICO</option>
+      <option value="MARUTI">MARUTI</option>
+      <option value="MASTEK">MASTEK</option>
+      <option value="MAXHEALTH">MAXHEALTH</option>
+      <option value="MAZDOCK">MAZDOCK</option>
+      <option value="MCX">MCX</option>
+      <option value="MEDANTA">MEDANTA</option>
+      <option value="METROPOLIS">METROPOLIS</option>
+      <option value="MFSL">MFSL</option>
+      <option value="MGL">MGL</option>
+      <option value="MINDACORP">MINDACORP</option>
+      <option value="MMTC">MMTC</option>
+      <option value="MOTHERSON">MOTHERSON</option>
+      <option value="MOTILALOFS">MOTILALOFS</option>
+      <option value="MPHASIS">MPHASIS</option>
+      <option value="MRF">MRF</option>
+      <option value="MRPL">MRPL</option>
+      <option value="MSUMI">MSUMI</option>
+      <option value="MUTHOOTFIN">MUTHOOTFIN</option>
+      <option value="NAM-INDIA">INDIA</option>
+      <option value="NATCOPHARM">NATCOPHARM</option>
+      <option value="NATIONALUM">NATIONALUM</option>
+      <option value="NAUKRI">NAUKRI</option>
+      <option value="NAVA">NAVA</option>
+      <option value="NAVINFLUOR">NAVINFLUOR</option>
+      <option value="NBCC">NBCC</option>
+      <option value="NCC">NCC</option>
+      <option value="NESTLEIND">NESTLEIND</option>
+      <option value="NETWEB">NETWEB</option>
+      <option value="NETWORK18">NETWORK18</option>
+      <option value="NEULANDLAB">NEULANDLAB</option>
+      <option value="NEWGEN">NEWGEN</option>
+      <option value="NH">NH</option>
+      <option value="NHPC">NHPC</option>
+      <option value="NIACL">NIACL</option>
+      <option value="NIVABUPA">NIVABUPA</option>
+      <option value="NLCINDIA">NLCINDIA</option>
+      <option value="NMDC">NMDC</option>
+      <option value="NSLNISP">NSLNISP</option>
+      <option value="NTPC">NTPC</option>
+      <option value="NTPCGREEN">NTPCGREEN</option>
+      <option value="NUVAMA">NUVAMA</option>
+      <option value="NYKAA">NYKAA</option>
+      <option value="OBEROIRLTY">OBEROIRLTY</option>
+      <option value="OFSS">OFSS</option>
+      <option value="OIL">OIL</option>
+      <option value="OLAELEC">OLAELEC</option>
+      <option value="OLECTRA">OLECTRA</option>
+      <option value="ONGC">ONGC</option>
+      <option value="PAGEIND">PAGEIND</option>
+      <option value="PATANJALI">PATANJALI</option>
+      <option value="PAYTM">PAYTM</option>
+      <option value="PCBL">PCBL</option>
+      <option value="PEL">PEL</option>
+      <option value="PERSISTENT">PERSISTENT</option>
+      <option value="PETRONET">PETRONET</option>
+      <option value="PFC">PFC</option>
+      <option value="PFIZER">PFIZER</option>
+      <option value="PGEL">PGEL</option>
+      <option value="PHOENIXLTD">PHOENIXLTD</option>
+      <option value="PIDILITIND">PIDILITIND</option>
+      <option value="PIIND">PIIND</option>
+      <option value="PNB">PNB</option>
+      <option value="PNBHOUSING">PNBHOUSING</option>
+      <option value="PNCINFRA">PNCINFRA</option>
+      <option value="POLICYBZR">POLICYBZR</option>
+      <option value="POLYCAB">POLYCAB</option>
+      <option value="POLYMED">POLYMED</option>
+      <option value="POONAWALLA">POONAWALLA</option>
+      <option value="POWERGRID">POWERGRID</option>
+      <option value="POWERINDIA">POWERINDIA</option>
+      <option value="PPLPHARMA">PPLPHARMA</option>
+      <option value="PRAJIND">PRAJIND</option>
+      <option value="PREMIERENE">PREMIERENE</option>
+      <option value="PRESTIGE">PRESTIGE</option>
+      <option value="PTCIL">PTCIL</option>
+      <option value="PVRINOX">PVRINOX</option>
+      <option value="RADICO">RADICO</option>
+      <option value="RAILTEL">RAILTEL</option>
+      <option value="RAINBOW">RAINBOW</option>
+      <option value="RAMCOCEM">RAMCOCEM</option>
+      <option value="RAYMOND">RAYMOND</option>
+      <option value="RAYMONDLSL">RAYMONDLSL</option>
+      <option value="RBLBANK">RBLBANK</option>
+      <option value="RCF">RCF</option>
+      <option value="RECLTD">RECLTD</option>
+      <option value="REDINGTON">REDINGTON</option>
+      <option value="RELIANCE">RELIANCE</option>
+      <option value="RENUKA">RENUKA</option>
+      <option value="RHIM">RHIM</option>
+      <option value="RITES">RITES</option>
+      <option value="RKFORGE">RKFORGE</option>
+      <option value="ROUTE">ROUTE</option>
+      <option value="RPOWER">RPOWER</option>
+      <option value="RRKABEL">RRKABEL</option>
+      <option value="RTNINDIA">RTNINDIA</option>
+      <option value="RVNL">RVNL</option>
+      <option value="SAGILITY">SAGILITY</option>
+      <option value="SAIL">SAIL</option>
+      <option value="SAILIFE">SAILIFE</option>
+      <option value="SAMMAANCAP">SAMMAANCAP</option>
+      <option value="SAPPHIRE">SAPPHIRE</option>
+      <option value="SARDAEN">SARDAEN</option>
+      <option value="SAREGAMA">SAREGAMA</option>
+      <option value="SBFC">SBFC</option>
+      <option value="SBICARD">SBICARD</option>
+      <option value="SBILIFE">SBILIFE</option>
+      <option value="SBIN">SBIN</option>
+      <option value="SCHAEFFLER">SCHAEFFLER</option>
+      <option value="SCHNEIDER">SCHNEIDER</option>
+      <option value="SCI">SCI</option>
+      <option value="SHREECEM">SHREECEM</option>
+      <option value="SHRIRAMFIN">SHRIRAMFIN</option>
+      <option value="SHYAMMETL">SHYAMMETL</option>
+      <option value="SIEMENS">SIEMENS</option>
+      <option value="SIGNATURE">SIGNATURE</option>
+      <option value="SJVN">SJVN</option>
+      <option value="SKFINDIA">SKFINDIA</option>
+      <option value="SOBHA">SOBHA</option>
+      <option value="SOLARINDS">SOLARINDS</option>
+      <option value="SONACOMS">SONACOMS</option>
+      <option value="SONATSOFTW">SONATSOFTW</option>
+      <option value="SRF">SRF</option>
+      <option value="STARHEALTH">STARHEALTH</option>
+      <option value="SUMICHEM">SUMICHEM</option>
+      <option value="SUNDARMFIN">SUNDARMFIN</option>
+      <option value="SUNDRMFAST">SUNDRMFAST</option>
+      <option value="SUNPHARMA">SUNPHARMA</option>
+      <option value="SUNTV">SUNTV</option>
+      <option value="SUPREMEIND">SUPREMEIND</option>
+      <option value="SUZLON">SUZLON</option>
+      <option value="SWANENERGY">SWANENERGY</option>
+      <option value="SWIGGY">SWIGGY</option>
+      <option value="SWSOLAR">SWSOLAR</option>
+      <option value="SYNGENE">SYNGENE</option>
+      <option value="SYRMA">SYRMA</option>
+      <option value="TANLA">TANLA</option>
+      <option value="TARIL">TARIL</option>
+      <option value="TATACHEM">TATACHEM</option>
+      <option value="TATACOMM">TATACOMM</option>
+      <option value="TATACONSUM">TATACONSUM</option>
+      <option value="TATAELXSI">TATAELXSI</option>
+      <option value="TATAINVEST">TATAINVEST</option>
+      <option value="TATAMOTORS">TATAMOTORS</option>
+      <option value="TATAPOWER">TATAPOWER</option>
+      <option value="TATASTEEL">TATASTEEL</option>
+      <option value="TATATECH">TATATECH</option>
+      <option value="TBOTEK">TBOTEK</option>
+      <option value="TCS">TCS</option>
+      <option value="TECHM">TECHM</option>
+      <option value="TECHNOE">TECHNOE</option>
+      <option value="TEJASNET">TEJASNET</option>
+      <option value="THERMAX">THERMAX</option>
+      <option value="TIINDIA">TIINDIA</option>
+      <option value="TIMKEN">TIMKEN</option>
+      <option value="TITAGARH">TITAGARH</option>
+      <option value="TITAN">TITAN</option>
+      <option value="TORNTPHARM">TORNTPHARM</option>
+      <option value="TORNTPOWER">TORNTPOWER</option>
+      <option value="TRENT">TRENT</option>
+      <option value="TRIDENT">TRIDENT</option>
+      <option value="TRITURBINE">TRITURBINE</option>
+      <option value="TRIVENI">TRIVENI</option>
+      <option value="TTML">TTML</option>
+      <option value="TVSMOTOR">TVSMOTOR</option>
+      <option value="UBL">UBL</option>
+      <option value="UCOBANK">UCOBANK</option>
+      <option value="ULTRACEMCO">ULTRACEMCO</option>
+      <option value="UNIONBANK">UNIONBANK</option>
+      <option value="UNITDSPR">UNITDSPR</option>
+      <option value="UNOMINDA">UNOMINDA</option>
+      <option value="UPL">UPL</option>
+      <option value="USHAMART">USHAMART</option>
+      <option value="UTIAMC">UTIAMC</option>
+      <option value="VBL">VBL</option>
+      <option value="VEDL">VEDL</option>
+      <option value="VGUARD">VGUARD</option>
+      <option value="VIJAYA">VIJAYA</option>
+      <option value="VMM">VMM</option>
+      <option value="VOLTAS">VOLTAS</option>
+      <option value="VTL">VTL</option>
+      <option value="WAAREEENER">WAAREEENER</option>
+      <option value="WELCORP">WELCORP</option>
+      <option value="WELSPUNLIV">WELSPUNLIV</option>
+      <option value="WESTLIFE">WESTLIFE</option>
+      <option value="WHIRLPOOL">WHIRLPOOL</option>
+      <option value="WIPRO">WIPRO</option>
+      <option value="WOCKPHARMA">WOCKPHARMA</option>
+      <option value="YESBANK">YESBANK</option>
+      <option value="ZEEL">ZEEL</option>
+      <option value="ZENSARTECH">ZENSARTECH</option>
+      <option value="ZENTEC">ZENTEC</option>
+      <option value="ZFCVINDIA">ZFCVINDIA</option>
+      <option value="ZYDUSLIFE">ZYDUSLIFE</option>
+    </select>
+    <div id="dny" style="position: relative; height: 100vh; width: 100vw">
+      <canvas id="myChart"></canvas>
+    </div>
+
+    <script>
+      function downloadJsonFile(data, filename) {
+        const jsonString = JSON.stringify(data, null, 2);
+        const blob = new Blob([jsonString], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a); // Append to body to ensure click works in all browsers
+        a.click();
+        document.body.removeChild(a); // Clean up the element
+        URL.revokeObjectURL(url);
+      }
+
+      document.getElementById("symbol").addEventListener("change", (e) => {
+        let sym = e.target.value;
+        let fil = dt.filter((d) => d["symbol"] === sym);
+        document.getElementById("dny").innerHTML =
+          '<canvas id="myChart"></canvas>';
+        drawChart(fil[0]["data"]);
+      });
+      function getRndInteger(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+      }
+
+      function getArr(n, indexPF) {
+        let arr = [];
+        let label = [];
+        while (arr.length < 1000) {
+          let rn = [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5][getRndInteger(0, 11)];
+          let ans = Number(Number(n["lastPrice"] * (1 + rn / 100)).toFixed(2));
+
+          n["lastPrice"] = ans;
+          arr.push(n["lastPrice"]);
+          if (n["lastPrice"] < 1) {
+            break;
+          }
+        }
+        return arr;
+      }
+
+      //randome_data_with_chart.html
+
+      function drawChart(arr) {
+        var originalLineDraw = Chart.controllers.line.prototype.draw;
+        Chart.helpers.extend(Chart.controllers.line.prototype, {
+          draw: function () {
+            originalLineDraw.apply(this, arguments);
+            var chart = this.chart;
+            var ctx = chart.chart.ctx;
+            var index = chart.config.data.lineAtIndex;
+            if (index) {
+              var xaxis = chart.scales["x-axis-0"];
+              var yaxis = chart.scales["y-axis-0"];
+              ctx.save();
+              ctx.beginPath();
+              ctx.moveTo(xaxis.getPixelForValue(undefined, index), yaxis.top);
+              // ctx.strokeStyle = "#ff0000";
+              ctx.lineTo(
+                xaxis.getPixelForValue(undefined, index),
+                yaxis.bottom
+              );
+              ctx.stroke();
+              ctx.restore();
+            }
+          },
+        });
+
+        var config = {
+          type: "line",
+          data: {
+            //labels: arr.map((_, i) => i + 1),
+            labels: arr,
+
+            datasets: [
+              {
+                label: "My First dataset",
+                data: arr,
+                fill: false,
+                borderColor: "blue",
+                backgroundColor: "blue",
+                borderWidth: 1,
+                // pointStyle: "rectRot",
+                pointRadius: 0,
+                // pointBorderColor: "rgb(0, 0, 0)",
+              },
+            ],
+            lineAtIndex: 1,
+          },
+        };
+
+        var ctx = document.getElementById("myChart").getContext("2d");
+        new Chart(ctx, config);
+      }
+
+      for (let d = 0; d < dt.length; d++) {
+        let cmm = R.groupBy((a) => a["industry"])(dt);
+        let x = R.pipe(
+          R.keys,
+          R.reduce((a, b) => {
+            a[b] = [-3, -2, -1, 0, 1, 2, 3][getRndInteger(0, 7)];
+            return a;
+          }, {})
+        );
+        let indexPF = x(cmm);
+        dt[d]["data"] = getArr(dt[d], indexPF);
+      }
+      drawChart(dt[0]["data"]);
+      console.log(dt, R.groupBy((a) => a["industry"])(dt));
+      // downloadJsonFile(dt, new Date().getTime() + ".json");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function getRndInteger(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+      }
+      let n = 10;
+      for (let i = 0; i < 100; i++) {
+        let rn = getRndInteger(-20, 20);
+        let ans = Number(Number(n * (1 + rn / 100)).toFixed(2));
+        console.log(`${n}*${rn}%=${ans}`);
+        n = ans;
+        if (n < 0) break;
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
