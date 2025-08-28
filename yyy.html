@@ -1,68 +1,94 @@
 <div id="chart"></div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/5.3.4/apexcharts.min.js"
-    integrity="sha512-FImCCel/NA+iTEiLnRklD7hTPfcNdVEwO9niFnKmL/KoSknriTDREY7zdTTgQId1qjbcIEavsyXUlyljCql5cg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<button onclick="add()">Add</button>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/5.3.4/apexcharts.min.js"
+  integrity="sha512-FImCCel/NA+iTEiLnRklD7hTPfcNdVEwO9niFnKmL/KoSknriTDREY7zdTTgQId1qjbcIEavsyXUlyljCql5cg=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
 <script>
-    function getRndInteger(min, max) {
-        return Math.floor(Math.random() * (max - min)) + min;
+  function getRndInteger(min, max) {
+    // return Math.floor(Math.random() * (max - min)) + min;
+
+    const diff = max - min;
+    return Math.random() * diff + min;
+  }
+
+  var t = getRndInteger(5, 500);
+  var arr = [
+    {
+      x: new Date("2000-01-01").getTime(),
+      //o h l c
+      y: [t, t, t, t],
+    },
+  ];
+  function add() {
+    debugger;
+    if (arr.length > 0) {
+      let t = arr.at(-1);
+      let pc = t.y[3];
+      let rn1 = getRndInteger(-1000, 1000) / 1000;
+      let o = Number(Number(pc * (1 + rn1 / 100)).toFixed(2));
+      let rn2 = getRndInteger(-1000, 1000) / 1000;
+      let h = Number(Number(pc * (1 + rn2 / 100)).toFixed(2));
+      let rn3 = getRndInteger(-1000, 1000) / 1000;
+      let l = Number(Number(pc * (1 + rn3 / 100)).toFixed(2));
+      let rn4 = getRndInteger(-1000, 1000) / 1000;
+      let c = Number(Number(pc * (1 + rn4 / 100)).toFixed(2));
+      console.log(rn1, rn2, rn3, rn4);
+      arr.push({
+        x: t.x + 1000,
+        //o h l c
+        y: [o, h, l, c],
+      });
     }
 
+    chart.updateSeries([
+      {
+        data: arr,
+      },
+    ]);
+  }
 
-    var t = getRndInteger(500, 50000);
-    var arr = [{
-        x: new Date().getTime(),
-        //o h l c 
-        y: [t, t, t, t]
-    }];
-    function add() {
-        if (arr.length > 0) {
-            let pc = arr.at(-1).y[3];
+  for (i = 0; i < 100; i++) {
+    let last = arr.at(-1);
+    let pc = last.y[3];
 
-            let rn1 = [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5][getRndInteger(0, 11)];
-            let o = Number(Number(pc * (1 + rn1 / 100)).toFixed(2));
-            let rn2 = [-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10][getRndInteger(0, 21)];
-            let h = Number(Number(pc * (1 + rn2 / 100)).toFixed(2));
-            let rn3 = [-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10][getRndInteger(0, 21)];
-            let l = Number(Number(pc * (1 + rn3 / 100)).toFixed(2));
-            let rn4 = [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5][getRndInteger(0, 11)];
-            let c = Number(Number(pc * (1 + rn4 / 100)).toFixed(2));
+    let rn1 = getRndInteger(-1000, 1000) / 1000;
+    let o = Number(Number(pc * (1 + rn1 / 100)).toFixed(2));
+    let rn2 = getRndInteger(-1000, 1000) / 1000;
+    let h = Number(Number(pc * (1 + rn2 / 100)).toFixed(2));
+    let rn3 = getRndInteger(-1000, 1000) / 1000;
+    let l = Number(Number(pc * (1 + rn3 / 100)).toFixed(2));
+    let rn4 = getRndInteger(-1000, 1000) / 1000;
+    let c = Number(Number(pc * (1 + rn4 / 100)).toFixed(2));
 
+    arr.push({
+      x: last.x + 1000,
+      //o h l c
+      y: [o, h, l, c],
+    });
+  }
+  const options = {
+    chart: {
+      type: "candlestick",
+      height: 350,
+      id: "candles",
+    },
+    series: [
+      {
+        data: arr,
+      },
+    ],
+    xaxis: {
+      type: "datetime",
+    },
+  };
 
-            arr.push(
-                {
-                    x: new Date().getTime(),
-                    //o h l c 
-                    y: [o, h, l, c]
-                }
-            )
-        }
+  const chart = new ApexCharts(document.querySelector("#chart"), options);
+  chart.render();
 
-
-        chart.updateSeries([{
-            data: arr
-        }]);
-    }
-
-
-    const options = {
-        chart: {
-            type: 'candlestick',
-            height: 350,
-            id: 'candles'
-        },
-        series: [{
-            data: arr
-        }],
-        xaxis: {
-            type: 'datetime'
-        }
-    };
-
-    const chart = new ApexCharts(document.querySelector("#chart"), options);
-    chart.render();
-
-    setInterval(() => {
-        add();
-    }, 1000)
+  setInterval(() => {
+    add();
+  }, 1000);
 </script>
